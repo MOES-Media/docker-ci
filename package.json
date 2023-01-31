@@ -5,7 +5,7 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "release:prepare": "semantic-release --debug"
+    "release:prepare": "GH_TOKEN=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 semantic-release --debug"
   },
   "repository": {
     "type": "git",
