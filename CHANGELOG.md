@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/MOES-Media/docker-ci/compare/v1.0.0...v1.0.1) (2023-01-31)
+
+
+### Bug Fixes
+
+* **release:** added Dockerfile to dockerfile config ([3c725ef](https://github.com/MOES-Media/docker-ci/commit/3c725ef5c036f3c5038fb146a52ded233ff68f14))
+
 # 1.0.0 (2023-01-31)
 
 
