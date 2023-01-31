@@ -27,7 +27,7 @@ jobs:
         uses: docker/login-action@v2
         with:
           registry: ${{ env.REGISTRY }}
-          username: ${{ github.actor }}
+          username: MOES-Media
           password: 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
       - name: Prepare Release
         run: yarn install --immutable --immutable-cache --check-cache && yarn release:prepare
