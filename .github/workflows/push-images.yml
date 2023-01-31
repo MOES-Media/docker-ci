@@ -6,6 +6,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
+  GH_TOKEN: ${{ secrets.SEMANTIC_RELEASE_TOKEN }}
 
 jobs:
   Build-And-Push-Image:
@@ -31,8 +32,6 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Prepare Release
         run: yarn install --immutable --immutable-cache --check-cache && yarn release:prepare
-        env:
-          GITHUB_TOKEN: ${{ secrets.SEMANTIC_RELEASE_TOKEN }}
       - name: Get Package Version
         id: package-version
         uses: martinbeentjes/npm-get-version-action@main
