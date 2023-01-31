@@ -5,7 +5,7 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "release:prepare": "semantic-release"
+    "release:prepare": "semantic-release --debug"
   },
   "repository": {
     "type": "git",
