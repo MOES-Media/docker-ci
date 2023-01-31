@@ -48,4 +48,5 @@ jobs:
           file: ${{ matrix.dockerfile }}
           push: true
           tags: ${{ steps.package-version.outputs.current-version }}
+          labels: ${{ steps.meta.outputs.labels }}
 
