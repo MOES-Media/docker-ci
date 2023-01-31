@@ -32,7 +32,7 @@ jobs:
       - name: Prepare Release
         run: yarn install --immutable --immutable-cache --check-cache && yarn release:prepare
         env:
-          GITHUB_TOKEN: ${{ secrets.CI_TOKEN }}
+          GH_TOKEN: ${{ secrets.CI_TOKEN }}
       - name: Get Package Version
         id: package-version
         uses: martinbeentjes/npm-get-version-action@main
