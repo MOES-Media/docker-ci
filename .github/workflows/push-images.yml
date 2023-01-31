@@ -28,7 +28,7 @@ jobs:
         with:
           registry: ${{ env.REGISTRY }}
           username: MOES-Media
-          password: ${{ secrets.CI_TOKEN }}
+          password: ${{ secrets.GITHUB_TOKEN }}
       - name: Prepare Release
         run: yarn install --immutable --immutable-cache --check-cache && yarn release:prepare
         env:
