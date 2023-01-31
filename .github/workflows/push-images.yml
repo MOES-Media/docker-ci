@@ -6,7 +6,6 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  GITHUB_TOKEN: ${{ secrets.CI_TOKEN }}
 
 jobs:
   Build-And-Push-Image:
@@ -29,7 +28,7 @@ jobs:
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
-          password: ${{ env.GITHUB_TOKEN }}
+          password: ${{ secrets.CI_TOKEN }}
       - name: Prepare Release
         run: yarn install --immutable --immutable-cache --check-cache && yarn release:prepare
       - name: Get Package Version
