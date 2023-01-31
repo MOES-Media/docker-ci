@@ -17,9 +17,6 @@ jobs:
         include:
           - dockerfile: ./grpc-generate-java-node
             image: ghcr.io/MOES-Media/grpc-generate-java-node
-      permissions:
-        contents: read
-        packages: write
 
     steps:
       - uses: actions/checkout@v2
@@ -31,7 +28,7 @@ jobs:
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
-          password: ${{ secrects.CI_TOKEN }}
+          password: ${{ secrets.CI_TOKEN }}
       - name: Prepare Release
         run: yarn install --immutable --immutable-cache --check-cache && yarn release:prepare
         env:
