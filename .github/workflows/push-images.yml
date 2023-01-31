@@ -18,6 +18,8 @@ jobs:
         include:
           - dockerfile: ./grpc-generate-java-node/Dockerfile
             image: ghcr.io/MOES-Media/grpc-generate-java-node
+          - dockerfile: ./grpc-publish-java-node/Dockerfile
+            image: ghcr.io/MOES-Media/grpc-publish-java-node
 
     steps:
       - uses: actions/checkout@v3
@@ -42,12 +44,14 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: ${{ matrix.image }}
+          tags: |
+            type=semver,patter={{major}}.{{minor}}.{{patch}},value=${{ steps.package-version.outputs.current-version }}
       - name: Build and push Docker image
         uses: docker/build-push-action@v4
         with:
           context: .
           file: ${{ matrix.dockerfile }}
           push: true
-          tags: ${{ matrix.image }}:${{ steps.package-version.outputs.current-version }}
+          tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
